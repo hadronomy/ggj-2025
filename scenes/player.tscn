@@ -18,3 +18,7 @@ frame_progress = 0.189917
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0j5iv")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
