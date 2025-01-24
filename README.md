@@ -5,7 +5,7 @@
   <a href="https://github.com/hadronomy/ggj-2025/blob/main/LICENSE">
     <img
       alt="Content License"
-      src="https://img.shields.io/github/license/hadronomy/ggj?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41"
+      src="https://img.shields.io/github/license/hadronomy/ggj-2025?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41"
     />
   </a>
 
