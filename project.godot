@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="ggj"
+run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [dotnet]
@@ -20,4 +22,5 @@ project/assembly_name="ggj"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"

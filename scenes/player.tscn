@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bov28bbnyqkki"]
+
+[ext_resource type="SpriteFrames" uid="uid://cjlqv83fgwl2j" path="res://assets/placeholders/sprites/captain_clown_nose/captain_clown_nose.tres" id="1_2w8ue"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_38rwn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0j5iv"]
+radius = 7.0
+height = 24.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_38rwn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_2w8ue")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.610259
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_0j5iv")
