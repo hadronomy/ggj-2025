@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bov28bbnyqkki"]
 
 [ext_resource type="SpriteFrames" uid="uid://cjlqv83fgwl2j" path="res://assets/placeholders/sprites/captain_clown_nose/captain_clown_nose.tres" id="1_2w8ue"]
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_38rwn"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_38rwn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0j5iv"]
 radius = 7.0
