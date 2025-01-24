@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjtetuf0llvp7"]
+
+[ext_resource type="Texture2D" uid="uid://1gg83gayt1fv" path="res://icon.svg" id="1_icyk1"]
+
+[sub_resource type="Curve2D" id="Curve2D_sktxw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -177, -5, 0, 0, 0, 0, -86, -69, 0, 0, 0, 0, 37, 0, 0, 0, 0, 0, 108, -68, 0, 0, 0, 0, 238, 1)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ejrc"]
+size = Vector2(123.988, 127.591)
+
+[sub_resource type="Animation" id="Animation_nbunb"]
+resource_name = "platform_movement"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MovingPlatform/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_a28rg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MovingPlatform/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fv3lj"]
+_data = {
+"RESET": SubResource("Animation_a28rg"),
+"platform_movement": SubResource("Animation_nbunb")
+}
+
+[node name="Platforms" type="Node2D"]
+position = Vector2(577, 341)
+
+[node name="MovingPlatform" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="MovingPlatform"]
+curve = SubResource("Curve2D_sktxw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="MovingPlatform/Path2D"]
+position = Vector2(-177, -5)
+rotation = -0.612935
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="MovingPlatform/Path2D/PathFollow2D"]
+rotation = 0.61116
+scale = Vector2(0.471121, 0.451849)
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="MovingPlatform/Path2D"]
+position = Vector2(-177, -5)
+rotation = -0.00177459
+scale = Vector2(0.471121, 0.451849)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform/Path2D/AnimatableBody2D"]
+position = Vector2(-0.495422, -0.306549)
+rotation = 0.00152275
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7ejrc")
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingPlatform/Path2D/AnimatableBody2D"]
+texture = ExtResource("1_icyk1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+callback_mode_process = 0
+libraries = {
+"": SubResource("AnimationLibrary_fv3lj")
+}
+autoplay = "platform_movement"
