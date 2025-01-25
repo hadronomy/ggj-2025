@@ -1,15 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmgjtv3qebcja"]
+[gd_scene load_steps=2 format=3 uid="uid://cmgjtv3qebcja"]
 
 [ext_resource type="Script" path="res://scripts/wind.gd" id="1_1exde"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cw5wu"]
-normal = Vector2(0, 1)
-
 [node name="Wind" type="Area2D"]
 script = ExtResource("1_1exde")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("WorldBoundaryShape2D_cw5wu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

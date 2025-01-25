@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://c8qfenmm5i57t"]
+[gd_scene load_steps=10 format=4 uid="uid://c8qfenmm5i57t"]
 
 [ext_resource type="PackedScene" uid="uid://bov28bbnyqkki" path="res://scenes/player.tscn" id="1_oikc6"]
 [ext_resource type="Texture2D" uid="uid://j0684sf46g7r" path="res://assets/placeholders/terrain/Terrain/Terrain (32x32).png" id="1_vlf21"]
@@ -1032,6 +1032,9 @@ pattern_0 = SubResource("TileMapPattern_a2j2w")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_83jgu"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cxf35"]
+normal = Vector2(0.00289924, 0.999996)
+
 [node name="World" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -1052,8 +1055,10 @@ script = ExtResource("3_3qjfv")
 shape = SubResource("WorldBoundaryShape2D_83jgu")
 
 [node name="Wind" parent="." instance=ExtResource("4_05nnp")]
-position = Vector2(-24, 8)
-rotation = -0.00453246
-strength_multiplier = 4.0
+rotation = 0.00289924
+strength_multiplier = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wind"]
+shape = SubResource("WorldBoundaryShape2D_cxf35")
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
