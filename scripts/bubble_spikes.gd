@@ -15,4 +15,3 @@ func _on_body_entered(body):
 func _on_timer_timeout():
 	print("revive")
 	get_tree().reload_current_scene()
-
