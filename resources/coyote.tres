@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CoyoteUpgrade" load_steps=3 format=3 uid="uid://b7pmftgpk5vpj"]
+
+[ext_resource type="Script" path="res://scripts/upgrades/coyote_upgrade.gd" id="1_e881o"]
+[ext_resource type="Texture2D" uid="uid://cpynxgi05cov5" path="res://assets/placeholders/sprites/captain_clown_nose/Sword/21-Sword Idle/Sword Idle 01.png" id="2_85mnp"]
+
+[resource]
+script = ExtResource("1_e881o")
+extra_seconds = 2
+texture = ExtResource("2_85mnp")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccwe48kulacjj"]
+
+[ext_resource type="PackedScene" uid="uid://bov28bbnyqkki" path="res://scenes/player.tscn" id="1_p1icw"]
+[ext_resource type="PackedScene" uid="uid://bjtetuf0llvp7" path="res://scenes/platform.tscn" id="2_bnuyr"]
+[ext_resource type="Script" path="res://scripts/falling_out.gd" id="3_32enk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_exmg0"]
+distance = -648.0
+
+[node name="TestPlatform" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_p1icw")]
+position = Vector2(405, 292)
+
+[node name="Platforms" parent="." instance=ExtResource("2_bnuyr")]
+position = Vector2(583, 348)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 589)
+collision_mask = 2
+script = ExtResource("3_32enk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("WorldBoundaryShape2D_exmg0")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
