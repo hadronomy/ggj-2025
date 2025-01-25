@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://bov28bbnyqkki"]
 
 [ext_resource type="SpriteFrames" uid="uid://cjlqv83fgwl2j" path="res://assets/placeholders/sprites/captain_clown_nose/captain_clown_nose.tres" id="1_2w8ue"]
-[ext_resource type="Script" path="res://scripts/idle.gd" id="3_2x0g5"]
-[ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_75lwk"]
-[ext_resource type="Script" path="res://scripts/run.gd" id="4_4ui4x"]
-[ext_resource type="Script" path="res://scripts/fall.gd" id="5_at1lv"]
-[ext_resource type="Script" path="res://scripts/jump.gd" id="6_7cffr"]
+[ext_resource type="Script" path="res://scripts/states/idle.gd" id="3_2x0g5"]
+[ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="3_75lwk"]
+[ext_resource type="Script" path="res://scripts/states/run.gd" id="4_4ui4x"]
+[ext_resource type="Script" path="res://scripts/states/fall.gd" id="5_at1lv"]
+[ext_resource type="Script" path="res://scripts/states/jump.gd" id="6_7cffr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0j5iv"]
 radius = 7.0

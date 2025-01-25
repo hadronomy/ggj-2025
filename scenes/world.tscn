@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://c8qfenmm5i57t"]
+[gd_scene load_steps=9 format=4 uid="uid://c8qfenmm5i57t"]
 
 [ext_resource type="PackedScene" uid="uid://bov28bbnyqkki" path="res://scenes/player.tscn" id="1_oikc6"]
 [ext_resource type="Texture2D" uid="uid://j0684sf46g7r" path="res://assets/placeholders/terrain/Terrain/Terrain (32x32).png" id="1_vlf21"]
 [ext_resource type="Script" path="res://scripts/killzone.gd" id="3_3qjfv"]
+[ext_resource type="PackedScene" uid="uid://cmgjtv3qebcja" path="res://scenes/wind.tscn" id="4_05nnp"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_a2j2w"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 2, 196608, 0, 3, 262144, 0, 4, 327680, 0, 5, 1, 65536, 0, 65537, 65536, 1, 131073, 65536, 2, 196609, 65536, 3, 262145, 65536, 4, 327681, 65536, 5, 2, 131072, 0, 65538, 131072, 1, 131074, 131072, 2, 196610, 131072, 3, 262146, 131072, 4, 327682, 131072, 5, 3, 196608, 0, 65539, 196608, 1, 131075, 196608, 2, 196611, 196608, 3, 262147, 196608, 4, 327683, 196608, 5, 4, 262144, 0, 65540, 262144, 1, 131076, 262144, 2, 196612, 262144, 3, 262148, 262144, 4, 327684, 262144, 5, 5, 327680, 0, 65541, 327680, 1, 131077, 327680, 2, 196613, 327680, 3, 262149, 327680, 4, 327685, 327680, 5)
@@ -1049,5 +1050,10 @@ script = ExtResource("3_3qjfv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_83jgu")
+
+[node name="Wind" parent="." instance=ExtResource("4_05nnp")]
+position = Vector2(-24, 8)
+rotation = -0.00453246
+strength_multiplier = 4.0
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
