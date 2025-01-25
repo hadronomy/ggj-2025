@@ -16,15 +16,16 @@ height = 24.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_2w8ue")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.189917
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0j5iv")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.1
 one_shot = true
 script = ExtResource("2_5y50w")
 
@@ -32,23 +33,27 @@ script = ExtResource("2_5y50w")
 script = ExtResource("3_75lwk")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite")]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_sprite", "player")]
 script = ExtResource("3_2x0g5")
-player = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
-
-[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite", "coyote_timer")]
-script = ExtResource("4_4ui4x")
 player = NodePath("../..")
+
+[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_sprite", "coyote_timer", "player")]
+script = ExtResource("4_4ui4x")
+move_speed = 200.0
+coyote_duration = 0.05
 animated_sprite = NodePath("../../AnimatedSprite2D")
 coyote_timer = NodePath("../../CoyoteTimer")
+player = NodePath("../..")
 
-[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite")]
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_sprite", "coyote_timer", "player")]
 script = ExtResource("5_at1lv")
-player = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
+coyote_timer = NodePath("../../CoyoteTimer")
+player = NodePath("../..")
 
-[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite")]
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_sprite", "coyote_timer", "player")]
 script = ExtResource("6_7cffr")
-player = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
+coyote_timer = NodePath("../../CoyoteTimer")
+player = NodePath("../..")

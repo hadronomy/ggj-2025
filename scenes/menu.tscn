@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbvchjhvdwldc"]
+[gd_scene load_steps=3 format=3 uid="uid://bc08312ip2aa7"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_v81q2"]
 [ext_resource type="AudioStream" uid="uid://dm4xw5qeyf3np" path="res://assets/sound_fx/506053__mellau__button-click-2.wav" id="2_l6sut"]
