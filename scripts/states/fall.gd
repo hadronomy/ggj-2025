@@ -3,6 +3,7 @@ class_name Fall
 
 @export var player: CharacterBody2D
 @export var animated_sprite: AnimatedSprite2D
+@export var coyote_timer: CoyoteTimer
 
 const SPEED = 150.0
 
@@ -23,7 +24,8 @@ func Physics_Update(delta):
 		if animated_sprite.flip_h:
 			animated_sprite.set_flip_h(false)
 	
+	var previous_on_floor = player.is_on_floor()
 	if player.is_on_floor():
 		Transitioned.emit(self, "idle")
-
+	
 	player.move_and_slide()

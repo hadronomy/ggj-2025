@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bov28bbnyqkki"]
+[gd_scene load_steps=9 format=3 uid="uid://bov28bbnyqkki"]
 
 [ext_resource type="SpriteFrames" uid="uid://cjlqv83fgwl2j" path="res://assets/placeholders/sprites/captain_clown_nose/captain_clown_nose.tres" id="1_2w8ue"]
+[ext_resource type="Script" path="res://scripts/nodes/coyote_timer.gd" id="2_5y50w"]
 [ext_resource type="Script" path="res://scripts/states/idle.gd" id="3_2x0g5"]
 [ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="3_75lwk"]
 [ext_resource type="Script" path="res://scripts/states/run.gd" id="4_4ui4x"]
@@ -22,6 +23,11 @@ frame_progress = 0.189917
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0j5iv")
 
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+script = ExtResource("2_5y50w")
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_75lwk")
 initial_state = NodePath("Idle")
@@ -31,10 +37,11 @@ script = ExtResource("3_2x0g5")
 player = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite")]
+[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite", "coyote_timer")]
 script = ExtResource("4_4ui4x")
 player = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
+coyote_timer = NodePath("../../CoyoteTimer")
 
 [node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite")]
 script = ExtResource("5_at1lv")

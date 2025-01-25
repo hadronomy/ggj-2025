@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bov28bbnyqkki" path="res://scenes/player.tscn" id="1_oikc6"]
 [ext_resource type="Texture2D" uid="uid://j0684sf46g7r" path="res://assets/placeholders/terrain/Terrain/Terrain (32x32).png" id="1_vlf21"]
-[ext_resource type="Script" path="res://scripts/killzone.gd" id="3_3qjfv"]
+[ext_resource type="Script" path="res://scripts/nodes/killzone.gd" id="3_3qjfv"]
 [ext_resource type="PackedScene" uid="uid://cmgjtv3qebcja" path="res://scenes/wind.tscn" id="4_05nnp"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_a2j2w"]
@@ -1056,7 +1056,7 @@ shape = SubResource("WorldBoundaryShape2D_83jgu")
 
 [node name="Wind" parent="." instance=ExtResource("4_05nnp")]
 rotation = 0.00289924
-strength_multiplier = 3.0
+strength_multiplier = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wind"]
 shape = SubResource("WorldBoundaryShape2D_cxf35")
