@@ -1040,7 +1040,7 @@ tile_set = SubResource("TileSet_fi88i")
 zoom = Vector2(3, 3)
 
 [node name="Player" parent="." instance=ExtResource("1_oikc6")]
-position = Vector2(-24, 0)
+position = Vector2(-24, -24)
 
 [node name="Boundary" type="StaticBody2D" parent="."]
 position = Vector2(0, 112)
