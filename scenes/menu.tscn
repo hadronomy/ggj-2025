@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbvchjhvdwldc"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_v81q2"]
+[ext_resource type="AudioStream" uid="uid://dm4xw5qeyf3np" path="res://assets/sound_fx/506053__mellau__button-click-2.wav" id="2_l6sut"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v81q2")
+
+[node name="Main" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 532.0
+offset_top = 290.0
+offset_right = 653.0
+offset_bottom = 391.0
+
+[node name="Start" type="Button" parent="Main"]
+layout_mode = 2
+text = "Start"
+
+[node name="Options" type="Button" parent="Main"]
+layout_mode = 2
+text = "Options"
+
+[node name="Exit" type="Button" parent="Main"]
+layout_mode = 2
+text = "Exit"
+
+[node name="OptionsMenu" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 532.0
+offset_top = 290.0
+offset_right = 653.0
+offset_bottom = 391.0
+
+[node name="MusicLabel" type="Label" parent="OptionsMenu"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="MusicVolume" type="HSlider" parent="OptionsMenu"]
+layout_mode = 2
+
+[node name="FXLabel" type="Label" parent="OptionsMenu"]
+layout_mode = 2
+text = "FX Volume"
+horizontal_alignment = 1
+
+[node name="FXVolume" type="HSlider" parent="OptionsMenu"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="OptionsMenu"]
+layout_mode = 2
+text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_l6sut")
+
+[connection signal="pressed" from="Main/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Main/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Main/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="OptionsMenu/Back" to="." method="_on_back_pressed"]
