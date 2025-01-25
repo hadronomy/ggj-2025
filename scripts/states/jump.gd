@@ -93,6 +93,7 @@ func handle_air_control(delta: float):
 		target_speed, 
 		acceleration
 	)
+	
 
 func check_transitions():
 	# Skip transitions during landing buffer

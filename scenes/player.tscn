@@ -40,7 +40,6 @@ player = NodePath("../..")
 
 [node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_sprite", "coyote_timer", "player")]
 script = ExtResource("4_4ui4x")
-move_speed = 200.0
 coyote_duration = 0.05
 animated_sprite = NodePath("../../AnimatedSprite2D")
 coyote_timer = NodePath("../../CoyoteTimer")
@@ -48,6 +47,7 @@ player = NodePath("../..")
 
 [node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_sprite", "coyote_timer", "player")]
 script = ExtResource("5_at1lv")
+air_speed = 100.0
 animated_sprite = NodePath("../../AnimatedSprite2D")
 coyote_timer = NodePath("../../CoyoteTimer")
 player = NodePath("../..")
