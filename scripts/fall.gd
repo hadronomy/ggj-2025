@@ -11,7 +11,7 @@ func Enter():
 
 func Physics_Update(delta):
 	player.velocity += player.get_gravity() * delta
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		player.velocity.x = direction * SPEED
 	else:

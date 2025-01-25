@@ -13,7 +13,7 @@ func Physics_Update(delta: float):
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
 		Transitioned.emit(self, "jump")
 	
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		player.velocity.x = direction * SPEED
 		if player.is_on_floor():

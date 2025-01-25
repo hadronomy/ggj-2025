@@ -9,14 +9,14 @@ const SPEED = 150.0
 func Enter():
 	animated_sprite.play("idle")
 
-func Physics_Update(delta):
+func Physics_Update(_delta):
 	if not player.is_on_floor():
 		Transitioned.emit(self, "fall")
 		
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
 		Transitioned.emit(self, "jump")
 		
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		Transitioned.emit(self, "run")
 	else:
