@@ -37,4 +37,4 @@ func _on_start_pressed() -> void:
 	#for node in nodes:
 	#	node.queue_free()
 	audio_player.play()
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	SceneManager.change_scene("res://scenes/world.tscn")
