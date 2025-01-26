@@ -1,43 +1,91 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc08312ip2aa7"]
+[gd_scene load_steps=9 format=3 uid="uid://bc08312ip2aa7"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_v81q2"]
+[ext_resource type="Texture2D" uid="uid://bl3tota2ctpo5" path="res://assets/ui/Sprites/UI_Flat_FrameSlot01a.png" id="2_5lhrn"]
+[ext_resource type="StyleBox" uid="uid://df6eexd81hfwo" path="res://pressed_button.tres" id="2_h7cr7"]
 [ext_resource type="AudioStream" uid="uid://dm4xw5qeyf3np" path="res://assets/sound_fx/506053__mellau__button-click-2.wav" id="2_l6sut"]
+[ext_resource type="StyleBox" uid="uid://dyc2kjn4gt4my" path="res://normal_button.tres" id="3_lrws4"]
+[ext_resource type="Texture2D" uid="uid://dcejkp81egbod" path="res://assets/ui/Sprites/UI_Flat_Handle03a.png" id="4_ry3xl"]
+[ext_resource type="StyleBox" uid="uid://c1ix34h1mimcc" path="res://slider.tres" id="5_2gqk3"]
+[ext_resource type="StyleBox" uid="uid://b8kqqc88ovvby" path="res://grabber_area_slider.tres" id="6_lktrr"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 45.0
+offset_top = -3.0
+offset_right = 45.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v81q2")
 
+[node name="MenuBackground" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = -74.5
+offset_right = 105.5
+offset_bottom = 74.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5lhrn")
+
 [node name="Main" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 532.0
-offset_top = 290.0
-offset_right = 653.0
-offset_bottom = 391.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.5
+offset_top = -44.0
+offset_right = 60.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0436, 1)
 
 [node name="Start" type="Button" parent="Main"]
 layout_mode = 2
+theme_override_styles/pressed = ExtResource("2_h7cr7")
+theme_override_styles/normal = ExtResource("3_lrws4")
 text = "Start"
 
 [node name="Options" type="Button" parent="Main"]
 layout_mode = 2
+theme_override_styles/pressed = ExtResource("2_h7cr7")
+theme_override_styles/normal = ExtResource("3_lrws4")
 text = "Options"
 
 [node name="Exit" type="Button" parent="Main"]
 layout_mode = 2
+theme_override_styles/pressed = ExtResource("2_h7cr7")
+theme_override_styles/normal = ExtResource("3_lrws4")
 text = "Exit"
 
 [node name="OptionsMenu" type="VBoxContainer" parent="."]
 visible = false
-layout_mode = 0
-offset_left = 532.0
-offset_top = 290.0
-offset_right = 653.0
-offset_bottom = 391.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -59.5
+offset_right = 54.5
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MusicLabel" type="Label" parent="OptionsMenu"]
 layout_mode = 2
@@ -46,6 +94,15 @@ horizontal_alignment = 1
 
 [node name="MusicVolume" type="HSlider" parent="OptionsMenu"]
 layout_mode = 2
+theme_override_icons/grabber = ExtResource("4_ry3xl")
+theme_override_icons/grabber_highlight = ExtResource("4_ry3xl")
+theme_override_icons/grabber_disabled = ExtResource("4_ry3xl")
+theme_override_styles/slider = ExtResource("5_2gqk3")
+theme_override_styles/grabber_area = ExtResource("6_lktrr")
+theme_override_styles/grabber_area_highlight = ExtResource("6_lktrr")
+max_value = 1.0
+step = 0.05
+value = 0.5
 
 [node name="FXLabel" type="Label" parent="OptionsMenu"]
 layout_mode = 2
@@ -54,9 +111,20 @@ horizontal_alignment = 1
 
 [node name="FXVolume" type="HSlider" parent="OptionsMenu"]
 layout_mode = 2
+theme_override_icons/grabber = ExtResource("4_ry3xl")
+theme_override_icons/grabber_highlight = ExtResource("4_ry3xl")
+theme_override_icons/grabber_disabled = ExtResource("4_ry3xl")
+theme_override_styles/slider = ExtResource("5_2gqk3")
+theme_override_styles/grabber_area = ExtResource("6_lktrr")
+theme_override_styles/grabber_area_highlight = ExtResource("6_lktrr")
+max_value = 1.0
+step = 0.05
+value = 0.5
 
 [node name="Back" type="Button" parent="OptionsMenu"]
 layout_mode = 2
+theme_override_styles/pressed = ExtResource("2_h7cr7")
+theme_override_styles/normal = ExtResource("3_lrws4")
 text = "Back"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
