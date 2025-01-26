@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1t8x5tcpq3mx"]
+
+[ext_resource type="Script" path="res://scripts/bubble_crow.gd" id="1_fu7hk"]
+[ext_resource type="Texture2D" uid="uid://cp7uscdl3iyim" path="res://assets/placeholders/terrain/Objects/Ship Helm/Ship Helm Idle 01.png" id="2_0tdf3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gv13"]
+
+[node name="BubbleCrow" type="Area2D"]
+script = ExtResource("1_fu7hk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0tdf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5gv13")
