@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnd6hsjanjjer"]
+
+[ext_resource type="Script" path="res://scripts/bubble_spikes.gd" id="1_xoxp8"]
+[ext_resource type="Texture2D" uid="uid://dv4notcwcxxup" path="res://assets/placeholders/terrain/Objects/Spikes/Spikes.png" id="2_pomm1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87h0d"]
+size = Vector2(31, 16)
+
+[node name="BubbleSpikes" type="Area2D"]
+script = ExtResource("1_xoxp8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pomm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 8)
+shape = SubResource("RectangleShape2D_87h0d")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
